@@ -1,0 +1,643 @@
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background: #121212;
+    cursor: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: #121212;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-family: "Poppins", sans-serif;
+    color: #ff5f5f;
+}
+
+.list {
+    display: flex;
+    list-style: none;
+}
+
+.item {
+    font-size: 1.5rem;
+    margin: 0 1em;
+    font-family: "Poppins", sans-serif;
+}
+
+.link {
+    text-decoration: none;
+    color: #ff5f5f;
+    cursor: none;
+}
+
+.cursor {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 2000;
+}
+
+.outer {
+    border: 0.5px solid #f7f7f770;
+}
+
+.inner {
+    background: #f7f7f720;
+    transition: 250ms ease-out;
+}
+
+.cursor.hover {
+    transform: translate(-50%, -50%) scale(4);
+    transition: transform 250ms ease-in-out;
+}
+
+.inner.hover {
+    background: #f7f7f7;
+    mix-blend-mode: difference;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f7f7f7;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.home-img img {
+    margin-top: 160px;
+    margin-left: 70px;
+    width: 20vw;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    animation: floatImage 4s ease-in-out infinite;
+    transition: 0.4s ease;
+}
+
+.home-img img:hover {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3),
+                0 0 35px rgba(255, 255, 255, 0.3),
+                0 0 45px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2.4rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Style for the text */
+.multiple-text {
+  font-weight: bold;
+  color: #ff5f5f;
+  border-right: 2px solid; /* Cursor effect */
+  animation: blink 0.7s infinite;
+}
+
+/* Blinking cursor effect */
+@keyframes blink {
+  0% { border-color: transparent; }
+  50% { border-color: #ff5f5f; }
+  100% { border-color: transparent; }
+}
+
+.home-content {
+    margin-left: 5rem;
+    margin-top: 170px;
+}
+
+.home-content h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+}
+
+.home-content h3:nth-of-type(2) {
+    margin-bottom: 1.5rem;
+}
+
+span {
+    color: #ff5f5f;
+}
+
+.home-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.3;
+    font-family: "Poppins", sans-serif;
+}
+
+.home-content p {
+    font-size: 1.3rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.social-media {
+    display: flex; /* Use flexbox to arrange icons horizontally */
+    align-items: center; /* Center icons vertically in the container */
+}
+
+.social-media a {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 42px;
+    height: 42px;
+    background: transparent;
+    border: 0.1rem solid gray;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: gray;
+    margin: 2rem 1.5rem 3rem 0;
+    transition: 0.3s ease;
+    text-decoration: none;
+}   
+
+.linkedin:hover {
+    transform: scale(1.2) translateY(-10px);
+    background-color: #007bff;
+    color: #f7f7f7;
+}
+
+.github:hover {
+    transform: scale(1.2) translateY(-10px);
+    background-color: black;
+    color: #f7f7f7;
+}
+
+.about {
+    margin-top: 80px;
+    margin-left: 70px;
+    color: #f7f7f7;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.aboutmepara {
+    margin-top: 30px;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.about-content {
+    flex: 1; /* Takes up one part of the space */
+    padding-right: 2rem;
+}
+
+.heading {
+    font-size: 2.5rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700s;
+    color: #ff5f5f;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 1200px;
+    color: #f7f7f7;
+    flex: 1;
+    font-family: "Poppins", sans-serif;
+    margin-top: 30px;
+}
+
+.about-section {
+    font-family: "Poppins", sans-serif;
+    margin-top: 22px;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.skills-icons {
+    display: flex;
+    justify-content: space-between; /* Adjust as needed */
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+  .skills-icons i {
+    font-size: 3rem; /* Adjust size as needed */
+    color: #f7f7f7;
+    padding-right: 50px;
+    flex: 1 1 30%; /* Allow 3 icons per row */
+    text-align: center; /* Center icons within their container */
+    margin-bottom: 25px;
+  }
+
+  .skills-icons img {
+    margin-top: 10px;
+    font-size: 3rem; /* Adjust size as needed */
+    color: #f7f7f7;
+    padding-right: 50px;
+    flex: 1 1 30%; /* Allow 3 icons per row */
+    text-align: center; /* Center icons within their container */
+  }
+
+/* Main Container */
+.about-section2 {
+    margin-top: 20px;
+    position: relative;
+    color: #f7f7f7;
+    font-family: "Poppins", sans-serif;
+    bottom: 130px;
+    right: 8px;
+  }
+
+  /* Tabs Navigation */
+  .tabs {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .tab-link {
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #f7f7f7;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .tab-link:hover {
+    color: #ff5f5f;
+  }
+
+  .tab-link.active {
+    color: #ff5f5f;
+  }
+
+  .tab-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #ff5f5f;
+    transition: all 0.3s ease;
+  }
+
+  .tab-link.active::after {
+    margin-left: 25px;
+    left: 0;
+    width: 60%;
+  }
+
+  /* Tab Content */
+  .tab-content {
+    display: none;
+    transition: 0.3s ease;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  ul li {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #f7f7f7;
+    padding-left: 10px;
+    transition: all 0.3s ease;
+  }
+
+  ul li:hover {
+    transform: translateX(10px);
+    color: #ff5f5f;
+  }
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 projects in a row */
+  grid-gap: 55px;
+  max-width: 1370px;
+  margin: 0 auto;
+}
+
+.project {
+  position: relative;
+  border: 2px solid gray;
+  border-radius: 10px;
+}
+
+.projects {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.project-content {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.project img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Overlay effect on hover */
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, #ff5f5f, rgba(177, 144, 144, 0.8));
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Project title styling */
+.project-title {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  color: #121212;
+}
+
+/* Project description styling */
+.project-description {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 1em;
+  margin-top: 10px;
+  text-align: center;
+  color: #121212;
+}
+
+/* Hover effect for the project box */
+.project-content:hover .project-overlay {
+  opacity: 1;
+}
+
+/* Hover effect for the project box */
+.project-content:hover {
+  transform: scale(1.05); /* Zoom-in effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Elevated shadow */
+}
+
+/* Separate hover animation for the GitHub repo button */
+.repo-link {
+  display: block;
+  padding: 0.50rem 1.0rem;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+.repo-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #121212; /* Primary color */
+  border-radius: 15px;
+  z-index: -2; /* Below the button */
+}
+
+.repo-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #ff5f5f; /* Darker shade for the animation */
+  transition: all 0.3s;
+  border-radius: 15px;
+  z-index: -1; /* Below the button */
+}
+
+.repo-link:hover {
+  color: #fff; /* Maintain text color on hover */
+}
+
+.repo-link:hover::before {
+  width: 100%; /* Create the sliding effect */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 projects in a row on medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .project-grid {
+    grid-template-columns: 1fr; /* 1 project in a row on small screens */
+  }
+}
+
+.heading2 {
+  font-size: 2.5rem;
+  color: #ff5f5f;
+  font-family: "Poppins", sans-serif;
+  margin-left: 70px;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 2.5rem;
+  color: #ff5f5f;
+  font-family: "Poppins", sans-serif;
+  margin-top: 120px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+/* Contact form container styles */
+.contact-form-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Input and textarea styles */
+.contact-form-container input,
+.contact-form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #121212;
+  color: #ffffff;
+  border: 1.7px solid #ff5f5f;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.contact-form-container input::placeholder,
+.contact-form-container textarea::placeholder {
+  color: #999999;
+}
+
+/* Send Button Styles */
+#send-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #ff5f5f;
+  color: #f7f7f7;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+#send-button:hover {
+  background-color: #121212;
+  border: 1.5px solid #ff5f5f;
+}
+
+/* Send Icon Styles */
+.send-icon {
+  transform: translateX(100%);
+  font-size: 2rem; /* Larger size for the icon */
+  margin-left: 10px;
+  position: absolute;
+  left: 10px; /* Start position */
+  opacity: 0; /* Hidden initially */
+  transition: opacity 0.3s ease;
+}
+
+/* Button text */
+.button-text {
+  color: #f7f7f7;
+  display: inline-block; /* Keeps the text inline */
+  transition: opacity 0.3s ease; /* Smooth transition for text */
+}
+
+/* On click animation */
+#send-button.sending .send-icon {
+  opacity: 1; /* Show icon */
+  animation: send-animation 0.8s forwards; /* Start animation */
+}
+
+/* On click animation */
+#send-button.sending .button-text {
+  opacity: 0; /* Hide text */
+}
+
+/* Animation keyframes */
+@keyframes send-animation {
+  0% {
+    left: 10px; /* Start position */
+    transform: scale(1); /* Normal size */
+  }
+  50% {
+    left: calc(100% - 50px); /* Move to the right */
+    transform: scale(1.5); /* Grow the icon */
+  }
+  100% {
+    left: 100%; /* Move off-screen */
+    opacity: 0; /* Hide icon */
+  }
+}
+
+/* Status Message */
+#form-status {
+  text-align: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #4CAF50;
+}
+
+.show-animation {
+  opacity: 1;
+  transform: translateY(0);
+}
